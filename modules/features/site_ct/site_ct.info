@@ -2,6 +2,7 @@ name = Site CT
 description = Content type settings
 core = 7.x
 package = Events
+dependencies[] = file_entity
 dependencies[] = node
 dependencies[] = text
 features[ctools][] = strongarm:strongarm:1
