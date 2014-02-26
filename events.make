@@ -30,6 +30,9 @@ projects[gmap][version] = 2.8
 projects[gauth][subdir] = "contrib"
 projects[gauth][version] = 1.3
 
+projects[fbconnect][subdir] = "contrib"
+projects[fbconnect][version] = 2.0-beta4
+
 projects[file_entity][subdir] = "contrib"
 projects[file_entity][version] = 2.0-alpha3
 
@@ -53,6 +56,9 @@ projects[panels][version] = 3.3
 
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = 1.2
+
+projects[strongarm][subdir] = "contrib"
+projects[strongarm][version] = 2.0
 
 projects[views][subdir] = "contrib"
 projects[views][version] = 3.7
