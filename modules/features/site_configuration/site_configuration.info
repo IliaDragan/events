@@ -1,7 +1,7 @@
 name = Site configuration
 description = Contains configuration for basic Drupal site setup, mainly core modules and configuration. Theme config has a seperate feature.
 core = 7.x
-package = Features
+package = Events
 dependencies[] = ctools
 dependencies[] = strongarm
 features[ctools][] = strongarm:strongarm:1
