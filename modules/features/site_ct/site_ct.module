@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Site CT feature.
+ */
+
+include_once 'site_ct.features.inc';
