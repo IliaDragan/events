@@ -80,6 +80,13 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'admin_theme';
+  $strongarm->value = 'seven';
+  $export['admin_theme'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'fbconnect_appid';
   $strongarm->value = '287881331233566';
   $export['fbconnect_appid'] = $strongarm;
@@ -269,6 +276,332 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_api_key';
+  $strongarm->value = '';
+  $export['gmap_api_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_default';
+  $strongarm->value = array(
+    'width' => '700px',
+    'height' => '300px',
+    'latlong' => '46.39936767248379,26.78466796875',
+    'zoom' => '6',
+    'maxzoom' => '14',
+    'styles' => array(
+      'line_default' => array(
+        0 => '0000ff',
+        1 => '5',
+        2 => '45',
+        3 => '',
+        4 => '',
+      ),
+      'poly_default' => array(
+        0 => '000000',
+        1 => '3',
+        2 => '25',
+        3 => 'ff0000',
+        4 => '45',
+      ),
+      'highlight_color' => 'ff0000',
+    ),
+    'controltype' => 'Small',
+    'pancontrol' => 1,
+    'streetviewcontrol' => 0,
+    'mtc' => 'standard',
+    'maptype' => 'Map',
+    'baselayers' => array(
+      'Map' => 1,
+      'Satellite' => 1,
+      'Hybrid' => 1,
+      'Physical' => 0,
+    ),
+    'behavior' => array(
+      'locpick' => FALSE,
+      'nodrag' => 0,
+      'nokeyboard' => 1,
+      'nomousezoom' => 0,
+      'nocontzoom' => 0,
+      'autozoom' => 0,
+      'dynmarkers' => 0,
+      'overview' => 0,
+      'collapsehack' => 0,
+      'scale' => 0,
+      'extramarkerevents' => FALSE,
+      'clickableshapes' => FALSE,
+      'highlight' => 0,
+    ),
+    'markermode' => '1',
+    'line_colors' => array(
+      0 => '#00cc00',
+      1 => '#ff0000',
+      2 => '#0000ff',
+    ),
+  );
+  $export['gmap_default'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_markermanager';
+  $strongarm->value = array(
+    'markermanager' => array(
+      'filename' => 'markermanager_packed.js',
+      'borderPadding' => '256',
+      'maxZoom' => '4',
+      'trackMarkers' => 0,
+      'markerMinZoom' => '4',
+      'markerMaxZoom' => '0',
+    ),
+    'markerclusterer' => array(
+      'filename' => 'markerclusterer_packed.js',
+      'gridSize' => 60,
+      'maxZoom' => 17,
+      'styles' => array(),
+    ),
+    'clusterer' => array(
+      'filename' => 'Clusterer2.js',
+      'marker' => 'cluster',
+      'max_nocluster' => '150',
+      'cluster_min' => '5',
+      'max_lines' => '10',
+      'popup_mode' => 'orig',
+    ),
+    'clustermarker' => array(
+      'filename' => 'ClusterMarker.js',
+      'borderPadding' => '256',
+      'clusteringEnabled' => 1,
+      'clusterMarkerIcon' => '',
+      'clusterMarkerTitle' => '',
+      'fitMapMaxZoom' => '0',
+      'intersectPadding' => '0',
+    ),
+  );
+  $export['gmap_markermanager'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_marker_custom_dir';
+  $strongarm->value = 'no value';
+  $export['gmap_marker_custom_dir'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_marker_file';
+  $strongarm->value = '1';
+  $export['gmap_marker_file'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_mm_type';
+  $strongarm->value = 'gmap';
+  $export['gmap_mm_type'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_node_map';
+  $strongarm->value = array(
+    'macro' => '[gmap |id=nodemap|center=46.437236894172365,27.13623046875|zoom=3|width=100%|height=400px]',
+    'header' => 'This map illustrates the locations of the nodes on this website. Each marker indicates a node associated with a specific location.',
+    'footer' => '',
+    'markermode' => '1',
+  );
+  $export['gmap_node_map'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_node_markers';
+  $strongarm->value = array(
+    'article' => 'big red',
+    'event' => 'big red',
+    'page' => 'big red',
+  );
+  $export['gmap_node_markers'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_role_markers';
+  $strongarm->value = array(
+    2 => 'big red',
+    3 => 'big red',
+  );
+  $export['gmap_role_markers'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'gmap_user_map';
+  $strongarm->value = array(
+    'macro' => '[gmap |id=usermap|center=46.437236894172365,27.13623046875|zoom=3|width=100%|height=400px]',
+    'header' => 'This map illustrates the extent of users of this website. Each marker indicates a user that has entered their locations.',
+    'footer' => '',
+    'markermode' => '1',
+  );
+  $export['gmap_user_map'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_defaultnum_event';
+  $strongarm->value = '1';
+  $export['location_defaultnum_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_default_country';
+  $strongarm->value = 'md';
+  $export['location_default_country'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_display_location';
+  $strongarm->value = '1';
+  $export['location_display_location'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_jit_geocoding';
+  $strongarm->value = 0;
+  $export['location_jit_geocoding'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_locpick_macro';
+  $strongarm->value = '[gmap]';
+  $export['location_locpick_macro'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_maplink_external';
+  $strongarm->value = 0;
+  $export['location_maplink_external'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_maplink_external_method';
+  $strongarm->value = 'target="_blank"';
+  $export['location_maplink_external_method'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_maxnum_event';
+  $strongarm->value = '1';
+  $export['location_maxnum_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_settings_node_event';
+  $strongarm->value = array(
+    'multiple' => array(
+      'min' => '0',
+      'max' => '1',
+      'add' => '1',
+    ),
+    'form' => array(
+      'weight' => '0',
+      'collapsible' => 1,
+      'collapsed' => 1,
+      'fields' => array(
+        'name' => array(
+          'collect' => '1',
+          'default' => '',
+          'weight' => '2',
+        ),
+        'street' => array(
+          'collect' => '1',
+          'default' => '',
+          'weight' => '4',
+        ),
+        'additional' => array(
+          'collect' => '1',
+          'default' => '',
+          'weight' => '6',
+        ),
+        'city' => array(
+          'collect' => '0',
+          'default' => '',
+          'weight' => '8',
+        ),
+        'province' => array(
+          'collect' => '0',
+          'widget' => 'autocomplete',
+          'default' => '',
+          'weight' => '10',
+        ),
+        'postal_code' => array(
+          'collect' => '0',
+          'default' => '',
+          'weight' => '12',
+        ),
+        'country' => array(
+          'collect' => '1',
+          'default' => 'us',
+          'weight' => '14',
+        ),
+        'locpick' => array(
+          'collect' => '1',
+          'weight' => '20',
+        ),
+      ),
+    ),
+    'display' => array(
+      'weight' => '0',
+      'hide' => array(
+        'name' => 0,
+        'street' => 0,
+        'additional' => 0,
+        'city' => 0,
+        'province' => 0,
+        'postal_code' => 0,
+        'country' => 0,
+        'locpick' => 0,
+        'province_name' => 0,
+        'country_name' => 0,
+        'map_link' => 0,
+        'coords' => 0,
+      ),
+      'teaser' => 1,
+      'full' => 1,
+    ),
+    'rss' => array(
+      'mode' => 'simple',
+    ),
+  );
+  $export['location_settings_node_event'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_usegmap';
+  $strongarm->value = 1;
+  $export['location_usegmap'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'location_use_province_abbreviation';
+  $strongarm->value = '1';
+  $export['location_use_province_abbreviation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'site_name';
   $strongarm->value = 'Events';
   $export['site_name'] = $strongarm;
@@ -279,6 +612,13 @@ function site_configuration_strongarm() {
   $strongarm->name = 'site_slogan';
   $strongarm->value = '';
   $export['site_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'theme_default';
+  $strongarm->value = 'tweme';
+  $export['theme_default'] = $strongarm;
 
   return $export;
 }
