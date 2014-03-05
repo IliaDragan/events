@@ -1,0 +1,51 @@
+<?php
+/**
+ * @file
+ * Utility functions for the events site.
+ */
+
+/* --- HOOKS ---------------------------------------------------------------- */
+
+/**
+ * Implements hook_init().
+ */
+function events_utility_init() {
+  // fb(smart_ip_session_get('smart_ip'));
+}
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function events_utility_views_pre_build(&$view) {
+  if ($view->name == 'events') {
+    $location = smart_ip_session_get('smart_ip');
+
+    // Only act if this user has set latitude and longitude values.
+    if (
+        is_array($location['location'])
+        &&
+        is_numeric($location['location']['latitude'])
+        &&
+        is_numeric($location['location']['longitude'])
+       ) {
+
+      $lat = $location['location']['latitude'];
+      $lon = $location['location']['longitude'];
+      $usercenter = $lat.",".$lon;
+
+      $view->display_handler->default_display->options['style_options']['macro'] = "[gmap center=$usercenter]";
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function events_utility_form_user_login_block_alter(&$form, &$form_state) {
+  if (arg(0) != 'user') {
+    unset($form['links']);
+    unset($form['name']);
+    unset($form['pass']);
+    unset($form['actions']);
+  }
+}
