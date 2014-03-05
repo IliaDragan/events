@@ -30,8 +30,8 @@ projects[gmap][version] = 2.8
 projects[gauth][subdir] = "contrib"
 projects[gauth][version] = 1.3
 
-projects[fbconnect][subdir] = "contrib"
-projects[fbconnect][version] = 2.0-beta4
+projects[fb][subdir] = "contrib"
+projects[fb][version] = 3.4
 
 projects[file_entity][subdir] = "contrib"
 projects[file_entity][version] = 2.0-alpha3
@@ -85,5 +85,7 @@ libraries[google-api-php-client][directory_name] = "google-api-php-client"
 libraries[google-api-php-client][download][type]= "get"
 libraries[google-api-php-client][download][url] = "http://google-api-php-client.googlecode.com/files/google-api-php-client-0.6.0.tar.gz"
 
+libraries[google-api-php-client][destination] = "libraries"
+libraries[google-api-php-client][directory_name] = "facebook-php-sdk"
 libraries[facebook-php-sdk][download][type] = "get"
 libraries[facebook-php-sdk][download][url] = "http://github.com/facebook/facebook-php-sdk/archive/v3.2.2.zip"
