@@ -57,6 +57,9 @@ projects[panels][version] = 3.3
 projects[pathauto][subdir] = "contrib"
 projects[pathauto][version] = 1.2
 
+projects[smart_ip][subdir] = "contrib"
+projects[smart_ip][version] = 2.2
+
 projects[strongarm][subdir] = "contrib"
 projects[strongarm][version] = 2.0
 
