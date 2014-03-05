@@ -1,0 +1,13 @@
+name = Events listing
+description = Contains configuration for events listing: panel/page/view
+core = 7.x
+package = Events
+dependencies[] = gmap
+dependencies[] = page_manager
+dependencies[] = views
+features[ctools][] = page_manager:pages_default:1
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[page_manager_pages][] = events_map
+features[views_view][] = events
+features_exclude[dependencies][ctools] = ctools

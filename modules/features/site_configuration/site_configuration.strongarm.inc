@@ -87,6 +87,27 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'device_geolocation_ajax_check';
+  $strongarm->value = 1;
+  $export['device_geolocation_ajax_check'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'device_geolocation_allowed_pages';
+  $strongarm->value = '';
+  $export['device_geolocation_allowed_pages'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'device_geolocation_check_frequency';
+  $strongarm->value = 0;
+  $export['device_geolocation_check_frequency'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'fbconnect_appid';
   $strongarm->value = '287881331233566';
   $export['fbconnect_appid'] = $strongarm;
@@ -355,11 +376,11 @@ function site_configuration_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'gmap_default';
   $strongarm->value = array(
-    'width' => '700px',
-    'height' => '300px',
-    'latlong' => '46.39936767248379,26.78466796875',
-    'zoom' => '6',
-    'maxzoom' => '14',
+    'width' => '100%',
+    'height' => '400px',
+    'latlong' => '47.06874410266695,28.696824951171955',
+    'zoom' => '8',
+    'maxzoom' => '0',
     'styles' => array(
       'line_default' => array(
         0 => '0000ff',
@@ -658,6 +679,84 @@ function site_configuration_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'location_settings_user';
+  $strongarm->value = array(
+    'multiple' => array(
+      'min' => '0',
+      'max' => '1',
+      'add' => '1',
+    ),
+    'form' => array(
+      'weight' => '0',
+      'collapsible' => 1,
+      'collapsed' => 1,
+      'fields' => array(
+        'name' => array(
+          'collect' => '1',
+          'default' => '',
+          'weight' => '2',
+        ),
+        'street' => array(
+          'collect' => '1',
+          'default' => '',
+          'weight' => '4',
+        ),
+        'additional' => array(
+          'collect' => '1',
+          'default' => '',
+          'weight' => '6',
+        ),
+        'city' => array(
+          'collect' => '0',
+          'default' => '',
+          'weight' => '8',
+        ),
+        'province' => array(
+          'collect' => '0',
+          'widget' => 'autocomplete',
+          'default' => '',
+          'weight' => '10',
+        ),
+        'postal_code' => array(
+          'collect' => '0',
+          'default' => '',
+          'weight' => '12',
+        ),
+        'country' => array(
+          'collect' => '1',
+          'default' => 'md',
+          'weight' => '14',
+        ),
+        'locpick' => array(
+          'collect' => '1',
+          'weight' => '20',
+        ),
+      ),
+      'register' => 0,
+    ),
+    'display' => array(
+      'weight' => '0',
+      'hide' => array(
+        'name' => 'name',
+        'street' => 'street',
+        'additional' => 'additional',
+        'city' => 'city',
+        'province' => 'province',
+        'postal_code' => 'postal_code',
+        'country' => 'country',
+        'locpick' => 'locpick',
+        'province_name' => 'province_name',
+        'country_name' => 'country_name',
+        'map_link' => 'map_link',
+        'coords' => 'coords',
+      ),
+    ),
+  );
+  $export['location_settings_user'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'location_usegmap';
   $strongarm->value = 1;
   $export['location_usegmap'] = $strongarm;
@@ -682,6 +781,162 @@ function site_configuration_strongarm() {
   $strongarm->name = 'site_slogan';
   $strongarm->value = '';
   $export['site_slogan'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_auto_update';
+  $strongarm->value = '1';
+  $export['smart_ip_auto_update'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_blocks_csv_last_pointer';
+  $strongarm->value = 0;
+  $export['smart_ip_blocks_csv_last_pointer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_blocks_csv_pointer';
+  $strongarm->value = 0;
+  $export['smart_ip_blocks_csv_pointer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_correct_ipinfodb_key';
+  $strongarm->value = TRUE;
+  $export['smart_ip_correct_ipinfodb_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_db_update_busy';
+  $strongarm->value = TRUE;
+  $export['smart_ip_db_update_busy'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_db_update_busy_timeout';
+  $strongarm->value = 1394053075;
+  $export['smart_ip_db_update_busy_timeout'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_debug';
+  $strongarm->value = 0;
+  $export['smart_ip_debug'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_extract_zip_done';
+  $strongarm->value = FALSE;
+  $export['smart_ip_extract_zip_done'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_get_zip_done';
+  $strongarm->value = FALSE;
+  $export['smart_ip_get_zip_done'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_ip2location_bin_cache';
+  $strongarm->value = 'no_cache';
+  $export['smart_ip_ip2location_bin_cache'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_ip2location_bin_path';
+  $strongarm->value = '';
+  $export['smart_ip_ip2location_bin_path'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_ipinfodb_key';
+  $strongarm->value = '142481ea5e7925be7c251cb6cd4c7177d9bd079bf664dee8833997ffe5c931f1';
+  $export['smart_ip_ipinfodb_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_location_csv_last_pointer';
+  $strongarm->value = 0;
+  $export['smart_ip_location_csv_last_pointer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_location_csv_pointer';
+  $strongarm->value = 0;
+  $export['smart_ip_location_csv_pointer'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_maxmind_key';
+  $strongarm->value = '';
+  $export['smart_ip_maxmind_key'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_maxmind_service';
+  $strongarm->value = 'country';
+  $export['smart_ip_maxmind_service'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_roles_to_geolocate';
+  $strongarm->value = array(
+    0 => 2,
+  );
+  $export['smart_ip_roles_to_geolocate'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_save_user_location_creation';
+  $strongarm->value = 0;
+  $export['smart_ip_save_user_location_creation'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_source';
+  $strongarm->value = 'ipinfodb_service';
+  $export['smart_ip_source'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_store_location_csv_done';
+  $strongarm->value = FALSE;
+  $export['smart_ip_store_location_csv_done'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_test_ip_address';
+  $strongarm->value = '120.198.230.21';
+  $export['smart_ip_test_ip_address'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'smart_ip_use_ipinfodb_api_version';
+  $strongarm->value = '3';
+  $export['smart_ip_use_ipinfodb_api_version'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
