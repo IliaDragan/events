@@ -49,9 +49,9 @@ function events_utility_views_pre_build(&$view) {
  */
 function events_utility_form_user_login_block_alter(&$form, &$form_state) {
   if (arg(0) != 'user') {
-    unset($form['links']);
-    unset($form['name']);
-    unset($form['pass']);
-    unset($form['actions']);
+    hide($form['links']);
+    hide($form['name']);
+    hide($form['pass']);
+    hide($form['actions']);
   }
 }
