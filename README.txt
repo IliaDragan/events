@@ -24,6 +24,21 @@ NOTES
     * Gmap with markers for each node.
 
 
+
+CHANGELOG
+---------
+
+- date 06.03.2014
+    GIT 65a3cf8ad94c51b80b6482e2f01e56e849dad32b:
+      * Added user location functionality.
+        Now map will be centered based on user ip address.
+
+      * Created new frontpage for anon/aauth users.
+
+      * Changed module for fb connect.
+
+      * Minor styling && code fixes
+
 Author
 ------
 Alexei Goja
